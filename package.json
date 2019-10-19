@@ -1,0 +1,39 @@
+{
+  "name": "gulp-webpack-build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seregamaksim/gulp-build.git"
+  },
+  "author": "seregamaksim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seregamaksim/gulp-build/issues"
+  },
+  "homepage": "https://github.com/seregamaksim/gulp-build#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "expose-loader": "^0.7.5",
+    "gulp": "^4.0.2",
+    "gulp-changed": "^4.0.2",
+    "gulp-imagemin": "^6.1.1",
+    "webpack": "^4.41.2"
+  },
+  "dependencies": {
+    "imagemin-gifsicle": "^6.0.1",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-optipng": "^7.1.0",
+    "imagemin-svgo": "^7.0.0",
+    "node-notifier": "^6.0.0",
+    "path": "^0.12.7"
+  }
+}

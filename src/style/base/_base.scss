@@ -1,0 +1,136 @@
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+::-moz-placeholder {
+  color: inherit;
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+:-moz-placeholder {
+  color: inherit;
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+:-ms-input-placeholder {
+  color: inherit;
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+:focus::-moz-placeholder {
+  opacity: 0;
+}
+
+:focus:-moz-placeholder {
+  opacity: 0;
+}
+
+:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+
+html{
+  font-size: 62.5%; // 10/16=0.625
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  // scroll-behavior:smooth;
+}
+*, *:before, *:after{
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body{
+  // display: flex;
+  // flex-direction: column;
+  min-width: 32rem;
+  min-height: 100%;
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5em;
+  text-rendering: optimizeLegibility;
+  text-decoration-skip: objects;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: #434343;
+  // visibility: hidden;
+  // overflow: hidden;
+}
+h1, h2, h3, h4, p, a, ul, li, div, span{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+img{
+  max-width: 100%;
+  height: auto;
+}
+textarea{
+  resize: vertical;
+}
+// a:active, a:focus, a:hover, a:link, a:visited {
+//   text-decoration: none;
+// }
+ul,li,button,input,p{
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+li{
+  list-style: none;
+}
+*:focus {
+  outline: none;
+}
+iframe{
+  display: block;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wrapper{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+}
+
+.container{
+  margin: 0 auto;
+  position: relative;
+}

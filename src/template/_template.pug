@@ -1,0 +1,24 @@
+block variables
+
+doctype html
+html(lang="ru-RU")
+  head
+    meta(charset="utf-8")
+
+    block page-title
+      title #{title}
+
+    include ./base/head
+      block headScripts
+
+      block style
+        include base/style
+    
+
+  body
+    block content
+
+    block scripts
+      script(type="text/javascript" src='/js/vendor.js' defer)
+      script(src='/js/app.js' defer)
+

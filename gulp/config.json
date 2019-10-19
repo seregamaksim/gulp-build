@@ -1,0 +1,49 @@
+{
+    "root": {
+      "source": "./src",
+      "build": "./build",
+      "spa": "./spa",
+      "temp": "./temp",
+      "data": "./data",
+      "json": "./source/json"
+    },
+    "template": {
+      "folders": "/template/**/*.*",
+      "dir": "/template/pages/*.*",
+      "content": "/content.json"
+    },
+    "style": {
+      "folders": "/style/**/*.*",
+      "dev": "/style/",
+      "dest": "/css",
+      "commons": "commons.{scss,sass}",
+      "media": "media.{scss,sass}",
+      "vendor": "vendor.{scss,sass}",
+      "postcss": "../../postcss.config"
+    },
+    "js": {
+      "folders": "/script/**/",
+      "dev": "",
+      "dist": "js/",
+      "extension": "*.+(js|json)"
+    },
+    "images": {
+      "dev": "/images/**/",
+      "dist": "/images",
+      "extension": "*.+(jpg|jpeg|png|gif|svg)"
+    },
+    "fonts": {
+      "dev": "/fonts/**/",
+      "dist": "/fonts",
+      "extension": "*.+(woff|woff2|ttf|eot|svg)"
+    },
+    "sprite": {
+      "dev": "/svg/*.svg",
+      "dist": "images/sprite"
+    },
+    "webp": {
+      "folder": "/webp",
+      "extension": "*.+(jpg|jpeg|png)"
+    }
+  }
+  
