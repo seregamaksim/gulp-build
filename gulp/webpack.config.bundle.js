@@ -7,7 +7,8 @@ module.exports = {
   mode: 'none',
   entry: {
     vendor: [
-      './source/script/jquery-3.4.1.min.js'],
+      // './source/script/jquery-3.4.1.min.js'
+    ],
     app: ['./source/script/app.js']
   },
   output: {

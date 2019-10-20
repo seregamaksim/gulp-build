@@ -42,8 +42,9 @@
       "dist": "images/sprite"
     },
     "webp": {
-      "folder": "/webp",
-      "extension": "*.+(jpg|jpeg|png)"
+      "dev": "/images/**/",
+      "dist": "/images",
+      "extension": "*.+(jpg|jpeg|png|gif|svg)"
     }
   }
   

@@ -2,35 +2,27 @@
 
 const path = require('path');
 const sass = require('gulp-sass');
-const normalize = require('normalize-path');
-
+sass.compiler = require('node-sass');
 const { src, dest } = require('gulp');
-const gulpif = require('gulp-if');
 const postcss = require('gulp-postcss');
+const rename = require('gulp-rename');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
-const sourcemaps = require('gulp-sourcemaps');
 const { reload } = require('browser-sync');
-const concatCss = require('gulp-concat-css');
 const cleanCss = require('gulp-clean-css');
 
-const config = require('./config.json');
-const mode = require('../libs/mode');
+const config = require('../config.json');
 
 
 module.exports = () => {
   function style() {
-    return src(
-      path.join(config.root.source, config.style.dev, config.style.commons),
-      path.join(config.root.source, config.style.dev, config.style.media),
-      path.join(config.root.source, config.style.dev, config.style.vendor)
-    )
+    return src(path.join(config.root.source, config.style.dev, config.style.commons))
       .pipe(sass({outputStyle: 'compressed'}))
       .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-      .pipe(gulpif(!mode.production, sourcemaps.init()))
-      .pipe(postcss(require('../../postcss.config')))
-      .pipe(gulpif(!mode.production, sourcemaps.write()))
-      .pipe(cleanCss())
+      .pipe(postcss(autoprefixer({browsers: ['last 5 version']})))
+      .pipe(dest(path.join(config.root.build, config.style.dest)))
+      .pipe(rename('common.min.css'))
+      .pipe(cleanCss({compatibility: '*'}))
       .pipe(dest(path.join(config.root.build, config.style.dest)))
       .pipe(reload({
         stream: true
