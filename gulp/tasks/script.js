@@ -4,14 +4,15 @@ const webpack = require('webpack');
 const notifier = require('node-notifier');
 const PluginError = require('plugin-error');
 const logger = require('fancy-log');
-
-module.exports = () => {
-  const config = require('../webpack.config.bundle');
-  const log = {
-    colors: true,
-    reasons: true
-  };
+const config = require('../webpack.config.bundle');
+    const log = {
+      colors: true,
+      reasons: true
+    };
+// module.exports = () => {
+  
   function js(done) {
+    
     const complete = (error, stats) => {
       const err = (error) => {
         const formatedError = new PluginError('webpack', error);
@@ -38,4 +39,5 @@ module.exports = () => {
 
     webpack(config, complete);
   }
-}
+// }
+exports.js = js;

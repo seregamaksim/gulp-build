@@ -20,6 +20,7 @@
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.6.3",
+    "autoprefixer": "^9.6.5",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
     "expose-loader": "^0.7.5",
@@ -38,7 +39,6 @@
     "webpack": "^4.41.2"
   },
   "dependencies": {
-    "autoprefixer": "^9.6.5",
     "del": "^5.1.0",
     "imagemin-gifsicle": "^6.0.1",
     "imagemin-jpegtran": "^6.0.0",
@@ -48,5 +48,10 @@
     "node-notifier": "^6.0.0",
     "path": "^0.12.7",
     "save-dev": "0.0.1-security"
-  }
+  },
+  "browserslist": [
+    "last 3 version",
+    "> 1%",
+    "IE 10"
+  ]
 }

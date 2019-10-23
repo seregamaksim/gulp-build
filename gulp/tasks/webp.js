@@ -11,19 +11,19 @@ const extReplace = require("gulp-ext-replace");
 const config = require('../config.json');
 
 
-module.exports = () => {
-  function imgWebp() {
-    return src(path.join(config.root.source, config.webp.dev, config.webp.extension))
-      .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-      .pipe(imagemin([
-        webp({
-          quality: 75
-        })
-      ]))
-      .pipe(extReplace('.webp'))
-      .pipe(dest(path.join(config.root.build, config.webp.dist)))
-      .pipe(reload({
-        stream: true
-      }));
-  }
+function imgWebp() {
+  return src(path.join(config.root.source, config.webp.dev, config.webp.extension))
+    .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+    .pipe(imagemin([
+      webp({
+        quality: 75
+      })
+    ]))
+    .pipe(extReplace('.webp'))
+    .pipe(dest(path.join(config.root.build, config.webp.dist)))
+    .pipe(reload({
+      stream: true
+    }));
 }
+
+exports.imgWebp = imgWebp;

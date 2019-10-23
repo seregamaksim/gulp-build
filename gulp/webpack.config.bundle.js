@@ -6,10 +6,10 @@ const config = require('./config.json');
 module.exports = {
   mode: 'none',
   entry: {
-    vendor: [
-      // './source/script/jquery-3.4.1.min.js'
-    ],
-    app: ['./source/script/app.js']
+    // vendor: [
+      // './src/script/jquery-3.4.1.min.js'
+    // ],
+    app: './src/script/app.js'
   },
   output: {
     path: path.resolve(config.root.build, config.js.dist),

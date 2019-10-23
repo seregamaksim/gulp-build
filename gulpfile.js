@@ -1,26 +1,31 @@
 "use strict";
 
-const gulp = require('gulp');
+const { series, parallel } = require('gulp');
 
-const tasks = require('./gulp/tasks');
+const htmlTask = require('./gulp/tasks/html');
+const cleanTask = require('./gulp/tasks/clean');
+const fontsTask = require('./gulp/tasks/fonts');
+const imagesTask = require('./gulp/tasks/images');
+const jsTask = require('./gulp/tasks/script');
+const serveTask = require('./gulp/tasks/serve');
+const cssTask = require('./gulp/tasks/style');
+const watchTask = require('./gulp/tasks/watch');
+const webpTask = require('./gulp/tasks/webp');
 
-tasks.forEach(function(taskPath){
-  require(taskPath)();
-});
-
-gulp.task('default', gulp.series(
-  'clean',
-  gulp.parallel(
-    'html',
-    'style',
-    'js',
-    'images',
-    'fonts',
+exports.default = series(
+  cleanTask.clean,
+  parallel(
+    htmlTask.html,
+    cssTask.style,
+    jsTask.js,
+    imagesTask.images,
+    fontsTask.fonts,
+    
     // 'sprite',
-    'webp'
+    webpTask.imgWebp,
+    
+    
   ),
-  gulp.parallel(
-    'watch',
-    'serve'
-  )
-));
+  parallel(serveTask.serve,
+    watchTask.watchTask,)
+);
