@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const normalize = require('normalize-path');
 const { src, dest } = require('gulp');
 const { reload } = require('browser-sync');
 const imagemin = require('gulp-imagemin');
@@ -12,7 +13,7 @@ const config = require('../config.json');
 
 
 function imgWebp() {
-  return src(path.join(config.root.source, config.webp.dev, config.webp.extension))
+  return src(normalize(path.join(config.root.source, config.webp.dev, config.webp.extension)))
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(imagemin([
       webp({
@@ -20,7 +21,7 @@ function imgWebp() {
       })
     ]))
     .pipe(extReplace('.webp'))
-    .pipe(dest(path.join(config.root.build, config.webp.dist)))
+    .pipe(dest(normalize(path.join(config.root.build, config.webp.dist))))
     .pipe(reload({
       stream: true
     }));

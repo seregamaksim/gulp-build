@@ -1,13 +1,14 @@
 'use strict';
 
 const path = require('path');
+const normalize = require('normalize-path');
 const { src, dest } = require('gulp');
 const { reload } = require('browser-sync');
 const imagemin = require('gulp-imagemin');
 const config = require('../config.json');
 
 function images() {
-  return src(path.join(config.root.source, config.images.dev, config.images.extension))
+  return src(normalize(path.join(config.root.source, config.images.dev, config.images.extension)))
     .pipe(imagemin([
       imagemin.gifsicle({interlaced: true}),
       imagemin.jpegtran({progressive: true}),
@@ -19,7 +20,7 @@ function images() {
           ]
       })
     ]))
-    .pipe(dest(path.join(config.root.build, config.images.dist)))
+    .pipe(dest(normalize(path.join(config.root.build, config.images.dist))))
     .pipe(reload({
       stream: true
     }));

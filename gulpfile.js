@@ -11,6 +11,7 @@ const serveTask = require('./gulp/tasks/serve');
 const cssTask = require('./gulp/tasks/style');
 const watchTask = require('./gulp/tasks/watch');
 const webpTask = require('./gulp/tasks/webp');
+const svgSprite = require('./gulp/tasks/sprite');
 
 exports.default = series(
   cleanTask.clean,
@@ -20,11 +21,8 @@ exports.default = series(
     jsTask.js,
     imagesTask.images,
     fontsTask.fonts,
-    
-    // 'sprite',
+    svgSprite.svgSprite,
     webpTask.imgWebp,
-    
-    
   ),
   parallel(serveTask.serve,
     watchTask.watchTask,)

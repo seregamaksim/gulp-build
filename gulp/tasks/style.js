@@ -4,6 +4,7 @@ const path = require('path');
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 const { src, dest } = require('gulp');
+const normalize = require('normalize-path');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const rename = require('gulp-rename');
@@ -16,14 +17,16 @@ const config = require('../config.json');
 
 
 function style() {
-  return src(path.join(config.root.source, config.style.dev, config.style.commons))
+  // return src('src/style/commons.scss')
+  return src(normalize(path.join(config.root.source, config.style.folders)))
     .pipe(sass())
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(postcss([autoprefixer()]))
-    .pipe(dest(path.join(config.root.build, config.style.dest)))
+    // .pipe(dest('build/css'))
+    .pipe(dest(normalize(path.join(config.root.build, config.style.dest))))
     .pipe(rename('common.min.css'))
     .pipe(cleanCss({compatibility: '*'}))
-    .pipe(dest(path.join(config.root.build, config.style.dest)))
+    .pipe(dest(normalize(path.join(config.root.build, config.style.dest))))
     .pipe(reload({
       stream: true
     }));

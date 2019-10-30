@@ -1,7 +1,7 @@
 {
     "root": {
-      "source": "./src",
-      "build": "./build",
+      "source": "src",
+      "build": "build",
       "spa": "./spa",
       "temp": "./temp",
       "data": "./data",
@@ -38,13 +38,13 @@
       "extension": "*.+(woff|woff2|ttf|eot|svg)"
     },
     "sprite": {
-      "dev": "/svg/*.svg",
+      "dev": "/images/**/*.svg",
       "dist": "images/sprite"
     },
     "webp": {
       "dev": "/images/**/",
       "dist": "/images",
-      "extension": "*.+(jpg|jpeg|png|gif|svg)"
+      "extension": "*.+(jpg|jpeg|png|gif)"
     }
   }
   
