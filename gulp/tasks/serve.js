@@ -2,7 +2,6 @@
 
 
 const browserSync = require('browser-sync').create();
-
 const config = require('../config.json');
 
 function serve() {

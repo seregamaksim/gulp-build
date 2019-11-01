@@ -11,7 +11,6 @@ const notify = require('gulp-notify');
 const extReplace = require("gulp-ext-replace");
 const config = require('../config.json');
 
-
 function imgWebp() {
   return src(normalize(path.join(config.root.source, config.webp.dev, config.webp.extension)))
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))

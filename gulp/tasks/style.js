@@ -12,17 +12,15 @@ const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const { reload } = require('browser-sync');
 const cleanCss = require('gulp-clean-css');
-
 const config = require('../config.json');
 
-
 function style() {
-  // return src('src/style/commons.scss')
   return src(normalize(path.join(config.root.source, config.style.folders)))
-    .pipe(sass())
+    .pipe(sass({
+      includePaths: require('node-normalize-scss').includePaths
+    }))
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(postcss([autoprefixer()]))
-    // .pipe(dest('build/css'))
     .pipe(dest(normalize(path.join(config.root.build, config.style.dest))))
     .pipe(rename('common.min.css'))
     .pipe(cleanCss({compatibility: '*'}))

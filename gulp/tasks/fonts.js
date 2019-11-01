@@ -4,7 +4,6 @@ const path = require('path');
 const normalize = require('normalize-path');
 const { src, dest } = require('gulp');
 const { reload } = require('browser-sync');
-
 const config = require('../config.json');
 
 function fonts() {
