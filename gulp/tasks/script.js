@@ -20,12 +20,12 @@ function js(done) {
         message: formatedError.message
       });
       done(formatedError);
-    }
+    };
 
     const success = (detail) => {
       logger('[webpack]', detail);
       done();
-    }
+    };
 
     if (error) {
       err(error);
@@ -34,7 +34,7 @@ function js(done) {
     } else {
       success( stats.toString(log) );
     }
-  }
+  };
   
   webpack(config, complete);
 }

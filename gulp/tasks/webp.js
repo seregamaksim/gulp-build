@@ -8,7 +8,7 @@ const imagemin = require('gulp-imagemin');
 const webp = require('imagemin-webp');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
-const extReplace = require("gulp-ext-replace");
+const extReplace = require('gulp-ext-replace');
 const config = require('../config.json');
 
 function imgWebp() {

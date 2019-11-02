@@ -27,22 +27,22 @@ function images() {
         quality: [0.6, 0.8]
       }),
       imagemin.svgo({
-          plugins: [
-            { removeViewBox: false },
-            { removeUnusedNS: false },
-            { removeUselessStrokeAndFill: false },
-            { cleanupIDs: false },
-            { removeComments: true },
-            { removeEmptyAttrs: true },
-            { removeEmptyText: true },
-            { collapseGroups: true }
+        plugins: [
+          { removeViewBox: false },
+          { removeUnusedNS: false },
+          { removeUselessStrokeAndFill: false },
+          { cleanupIDs: false },
+          { removeComments: true },
+          { removeEmptyAttrs: true },
+          { removeEmptyText: true },
+          { collapseGroups: true }
         ]
       })
     ]))
-  .pipe(dest(normalize(path.join(config.root.build, config.images.dist))))
-  .pipe(reload({
-    stream: true
-  }));
+    .pipe(dest(normalize(path.join(config.root.build, config.images.dist))))
+    .pipe(reload({
+      stream: true
+    }));
 }
 
 exports.images = images;

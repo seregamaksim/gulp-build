@@ -16,11 +16,11 @@ function svgSprite() {
       },
       mode: {
         stack: {
-            sprite: "../sprite.svg",
+          sprite: '/build/images/sprite/sprite',
         }
       }
-  }))
-    .pipe(dest(normalize(path.join(config.root.build, config.sprite.dist))))
+    }))
+    .pipe(dest(normalize(path.join(config.root.build, config.sprite.dist))));
 }
 
 exports.svgSprite = svgSprite;

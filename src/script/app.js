@@ -1,2 +1,1 @@
-'use strict';
-console.log('Здравствуй, путник!')
+console.log('Здравствуй, путник!');
