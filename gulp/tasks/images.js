@@ -8,10 +8,12 @@ const imagemin = require('gulp-imagemin');
 const imageminMozJpeg = require('imagemin-mozjpeg');
 const imageminPngquant = require('imagemin-pngquant');
 const imageminGiflossy = require('imagemin-giflossy');
+const changed = require('gulp-changed');
 const config = require('../config.json');
 
 function images() {
   return src(normalize(path.join(config.root.source, config.images.dev, config.images.extension)))
+    .pipe(changed(normalize(path.join(config.root.build, config.images.dist))))
     .pipe(imagemin([
       imageminGiflossy({
         optimizationLevel: 3,

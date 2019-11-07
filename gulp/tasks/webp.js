@@ -9,10 +9,12 @@ const webp = require('imagemin-webp');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const extReplace = require('gulp-ext-replace');
+const changed = require('gulp-changed');
 const config = require('../config.json');
 
 function imgWebp() {
   return src(normalize(path.join(config.root.source, config.webp.dev, config.webp.extension)))
+    .pipe(changed(normalize(path.join(config.root.build, config.webp.dist))))
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(imagemin([
       webp({
