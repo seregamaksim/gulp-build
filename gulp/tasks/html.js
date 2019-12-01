@@ -11,7 +11,7 @@ const config = require('../config.json');
 
 function html() {
   return src(normalize(path.join(config.root.source, config.template.dir)))
-    .pipe(changed(normalize(path.join(config.root.build)), {extension: '.html'}))
+    .pipe(changed(normalize(path.join(config.root.build))))
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(pug({
       pretty: true

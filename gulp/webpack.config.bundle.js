@@ -2,14 +2,12 @@
 
 const path = require('path');
 const config = require('./config.json');
-
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
   mode: 'none',
   entry: {
-    // vendor: [
-    // './src/script/jquery-3.4.1.min.js'
-    // ],
-    app: './src/script/app.js'
+    app: './src/script/app.js',
+    'app.min': './src/script/app.js'
   },
   output: {
     path: path.resolve(config.root.build, config.js.dist),
@@ -43,6 +41,14 @@ module.exports = {
         }]
       }
     ]
+    
+  
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new UglifyJsPlugin({
+      include: /\.min\.js$/
+    })]
   },
   externals: {
     jquery: 'jQuery'
