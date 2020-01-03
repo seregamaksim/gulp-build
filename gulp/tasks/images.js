@@ -15,11 +15,11 @@ function images() {
   return src(normalize(path.join(config.root.source, config.images.dev, config.images.extension)))
     .pipe(changed(normalize(path.join(config.root.build, config.images.dist))))
     .pipe(imagemin([
-      imageminGiflossy({
-        optimizationLevel: 3,
-        optimize: 3,
-        lossy: 80
-      }),
+      // imageminGiflossy({
+      //   optimizationLevel: 3,
+      //   optimize: 3,
+      //   lossy: 80
+      // }),
       imageminMozJpeg({
         progressive: true,
         quality: 90

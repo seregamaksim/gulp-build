@@ -22,7 +22,7 @@ function style() {
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(postcss([autoprefixer()]))
     .pipe(dest(normalize(path.join(config.root.build, config.style.dest))))
-    .pipe(rename('common.min.css'))
+    .pipe(rename('commons.min.css'))
     .pipe(cleanCss({compatibility: '*'}))
     .pipe(dest(normalize(path.join(config.root.build, config.style.dest))))
     .pipe(reload({

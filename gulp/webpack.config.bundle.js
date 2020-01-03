@@ -2,6 +2,7 @@
 
 const path = require('path');
 const config = require('./config.json');
+const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
   mode: 'none',
@@ -29,29 +30,22 @@ module.exports = {
             }
           ]
         }
-      },
-      {
-        test: /jquery.+\.js$/,
-        use: [{
-          loader: 'expose-loader',
-          options: 'jQuery'
-        },{
-          loader: 'expose-loader',
-          options: '$'
-        }]
       }
     ]
-    
-  
   },
+  // if need jQuery
+  // plugins: [
+  //   new webpack.ProvidePlugin({
+  //     $: 'jquery',
+  //     jQuery: 'jquery',
+  //     'window.jQuery': 'jquery'
+  //   }),
+  // ],
   optimization: {
     minimize: true,
     minimizer: [new UglifyJsPlugin({
       include: /\.min\.js$/
     })]
-  },
-  externals: {
-    jquery: 'jQuery'
   }
 };
 

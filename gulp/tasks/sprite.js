@@ -16,7 +16,7 @@ function svgSprite() {
       },
       mode: {
         stack: {
-          sprite: '/build/images/sprite/sprite',
+          sprite: '../sprite',
         }
       }
     }))
