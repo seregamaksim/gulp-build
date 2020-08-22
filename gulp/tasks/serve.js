@@ -11,7 +11,7 @@ function serve() {
       baseDir: config.root.build
     }
   });
-  browserSync.watch([config.root.build +  '/**/*.*', '!**/*.css'], browserSync.reload);
+  browserSync.watch([config.root.source + '/**/*.*', '!**/*.css'], browserSync.reload);
 }
 
 exports.serve = serve;

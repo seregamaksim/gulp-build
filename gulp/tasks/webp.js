@@ -18,7 +18,7 @@ function imgWebp() {
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(imagemin([
       webp({
-        quality: 80
+        quality: 85
       })
     ]))
     .pipe(extReplace('.webp'))

@@ -2,7 +2,6 @@
 
 const path = require('path');
 const config = require('./config.json');
-const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
   mode: 'none',
@@ -19,28 +18,17 @@ module.exports = {
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            '@babel/preset-env',
-            {
-              plugins: [
-                '@babel/plugin-proposal-class-properties'
-              ]
-            }
-          ]
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+            ]
+          }
         }
       }
     ]
   },
-  // if need jQuery
-  // plugins: [
-  //   new webpack.ProvidePlugin({
-  //     $: 'jquery',
-  //     jQuery: 'jquery',
-  //     'window.jQuery': 'jquery'
-  //   }),
-  // ],
   optimization: {
     minimize: true,
     minimizer: [new UglifyJsPlugin({

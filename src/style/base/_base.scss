@@ -1,17 +1,44 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
 h1, h2, h3, h4, h5, h6, p, a, ul, li, div, button, input {
   margin: 0;
   padding: 0;
 }
-img{
+button, iframe {
+  border: none;
+}
+button {
+  background: none;
+  cursor: pointer;
+}
+img {
+  display: block;
   max-width: 100%;
   height: auto;
 }
-textarea{
+textarea {
   resize: vertical;
 }
-iframe{
+iframe {
   display: block;
 }
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+input,
+textarea {
+  appearance: none;
+}
+body {
+  font-family: 'nameFont', Helvetica, sans-serif;
+  font-weight: normal;
+}
+
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
   width: 1px;
@@ -24,14 +51,8 @@ iframe{
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-.wrapper{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100%;
-}
-.container{
+.container {
   margin: 0 auto;
   position: relative;
+  box-sizing: content-box;
 }

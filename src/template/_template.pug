@@ -9,15 +9,12 @@ html(lang="ru-RU")
       title #{title}
 
     include ./base/head
-      block headScripts
-
-      block style
-        include base/style
     
 
-  body
+  body(class=bodyClass)
     block content
 
     block scripts
+      script(src="https://polyfill.io/v3/polyfill.min.js?features=default" defer)
       script(src='/js/app.min.js' defer)
 
