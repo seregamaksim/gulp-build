@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const { series, parallel } = require('gulp');
 
@@ -12,6 +12,7 @@ const cssTask = require('./gulp/tasks/style');
 const watchTask = require('./gulp/tasks/watch');
 const webpTask = require('./gulp/tasks/webp');
 const svgSprite = require('./gulp/tasks/sprite');
+const faviconsTask = require('./gulp/tasks/favicons');
 
 exports.default = series(
   cleanTask.clean,
@@ -23,6 +24,37 @@ exports.default = series(
     fontsTask.fonts,
     svgSprite.svgSprite,
     webpTask.imgWebp,
+    faviconsTask.favicons
+  ),
+  parallel(serveTask.serve,
+    watchTask.watchTask,)
+);
+exports.dev = series(
+  cleanTask.clean,
+  parallel(
+    htmlTask.html,
+    cssTask.styleDev,
+    jsTask.js,
+    imagesTask.images,
+    fontsTask.fonts,
+    svgSprite.svgSprite,
+    webpTask.imgWebp,
+    faviconsTask.favicons
+  ),
+  parallel(serveTask.serve,
+    watchTask.watchTask,)
+);
+exports.build = series(
+  cleanTask.clean,
+  parallel(
+    htmlTask.html,
+    cssTask.style,
+    jsTask.js,
+    imagesTask.images,
+    fontsTask.fonts,
+    svgSprite.svgSprite,
+    webpTask.imgWebp,
+    faviconsTask.favicons
   ),
   parallel(serveTask.serve,
     watchTask.watchTask,)

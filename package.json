@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development && gulp",
-    "build": "cross-env NODE_ENV=production && gulp"
+    "dev": "gulp dev",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.1.0",
     "gulp-svg-sprite": "^1.5.0",
+    "gulp-svgstore": "^7.0.1",
     "gulp-uglify": "^3.0.2",
     "imagemin-giflossy": "^5.1.10",
     "imagemin-mozjpeg": "^8.0.0",
@@ -51,6 +52,8 @@
   },
   "dependencies": {
     "del": "^5.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-svgmin": "^3.0.0",
     "imagemin-gifsicle": "^6.0.1",
     "imagemin-jpegtran": "^6.0.0",
     "imagemin-optipng": "^7.1.0",

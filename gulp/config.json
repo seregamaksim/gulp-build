@@ -1,28 +1,19 @@
 {
   "root": {
     "source": "src",
-    "build": "build",
-    "spa": "./spa",
-    "temp": "./temp",
-    "data": "./data",
-    "json": "./source/json"
+    "build": "build"
   },
   "template": {
     "folders": "/template/**/*.*",
-    "dir": "/template/pages/*.*",
-    "content": "/content.json"
+    "dir": "/template/pages/*.*"
   },
   "style": {
     "folders": "/style/**/*.*",
     "dev": "/style/",
-    "dest": "/css",
-    "commons": "commons.{scss,sass}",
-    "media": "media.{scss,sass}",
-    "vendor": "vendor.{scss,sass}"
+    "dest": "/css"
   },
   "js": {
     "folders": "/script/**/",
-    "dev": "",
     "dist": "js/",
     "extension": "*.+(js|json)"
   },
@@ -44,6 +35,10 @@
     "dev": "/images/**/",
     "dist": "/images",
     "extension": "*.+(jpg|jpeg|png|gif)"
+  },
+  "favicons": {
+    "dev": "/favicons/**/*.*",
+    "dest": "/"
   }
 }
   

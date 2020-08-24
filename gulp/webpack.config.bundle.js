@@ -4,7 +4,7 @@ const path = require('path');
 const config = require('./config.json');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
-  mode: 'none',
+  mode: 'production',
   entry: {
     app: './src/script/app.js',
     'app.min': './src/script/app.js'
@@ -36,6 +36,4 @@ module.exports = {
     })]
   }
 };
-
-// 
 
