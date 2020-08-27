@@ -13,49 +13,38 @@ const watchTask = require('./gulp/tasks/watch');
 const webpTask = require('./gulp/tasks/webp');
 const svgSprite = require('./gulp/tasks/sprite');
 const faviconsTask = require('./gulp/tasks/favicons');
+const mode = require('gulp-mode')();
 
-exports.default = series(
-  cleanTask.clean,
-  parallel(
-    htmlTask.html,
-    cssTask.style,
-    jsTask.js,
-    imagesTask.images,
-    fontsTask.fonts,
-    svgSprite.svgSprite,
-    webpTask.imgWebp,
-    faviconsTask.favicons
-  ),
-  parallel(serveTask.serve,
-    watchTask.watchTask,)
-);
-exports.dev = series(
-  cleanTask.clean,
-  parallel(
-    htmlTask.html,
-    cssTask.styleDev,
-    jsTask.js,
-    imagesTask.images,
-    fontsTask.fonts,
-    svgSprite.svgSprite,
-    webpTask.imgWebp,
-    faviconsTask.favicons
-  ),
-  parallel(serveTask.serve,
-    watchTask.watchTask,)
-);
-exports.build = series(
-  cleanTask.clean,
-  parallel(
-    htmlTask.html,
-    cssTask.style,
-    jsTask.js,
-    imagesTask.images,
-    fontsTask.fonts,
-    svgSprite.svgSprite,
-    webpTask.imgWebp,
-    faviconsTask.favicons
-  ),
-  parallel(serveTask.serve,
-    watchTask.watchTask,)
-);
+const isProduction = mode.production();
+
+if(isProduction) {
+  exports.default = series(
+    cleanTask.clean,
+    parallel(
+      htmlTask.html,
+      cssTask.style,
+      jsTask.js,
+      imagesTask.images,
+      fontsTask.fonts,
+      svgSprite.svgSprite,
+      webpTask.imgWebp,
+      faviconsTask.favicons
+    )
+  );
+} else {
+  exports.default = series(
+    cleanTask.clean,
+    parallel(
+      htmlTask.html,
+      cssTask.style,
+      jsTask.js,
+      imagesTask.images,
+      fontsTask.fonts,
+      svgSprite.svgSprite,
+      webpTask.imgWebp,
+      faviconsTask.favicons
+    ),
+    parallel(serveTask.serve,
+      watchTask.watchTask,)
+  );
+}

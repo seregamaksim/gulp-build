@@ -3,8 +3,14 @@
 const path = require('path');
 const config = require('./config.json');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const mode = require('gulp-mode')();
+const isProduction = mode.production();
+if(isProduction) {
+  module.exports.mode = 'production';
+}
+
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: {
     app: './src/script/app.js',
     'app.min': './src/script/app.js'
@@ -30,7 +36,7 @@ module.exports = {
     ]
   },
   optimization: {
-    minimize: true,
+    minimize: isProduction,
     minimizer: [new UglifyJsPlugin({
       include: /\.min\.js$/
     })]

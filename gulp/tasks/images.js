@@ -10,11 +10,12 @@ const imageminPngquant = require('imagemin-pngquant');
 const imageminGifsicle = require('imagemin-gifsicle');
 const changed = require('gulp-changed');
 const config = require('../config.json');
+const mode = require('gulp-mode')();
 
 function images() {
   return src(normalize(path.join(config.root.source, config.images.dev, config.images.extension)))
     .pipe(changed(normalize(path.join(config.root.build, config.images.dist))))
-    .pipe(imagemin([
+    .pipe(mode.production(imagemin([
       imageminGifsicle({
         optimizationLevel: 3
       }),
@@ -38,7 +39,7 @@ function images() {
           { collapseGroups: true }
         ]
       })
-    ]))
+    ])))
     .pipe(dest(normalize(path.join(config.root.build, config.images.dist))))
     .pipe(reload({
       stream: true

@@ -6,7 +6,6 @@ const config = require('../config.json');
 
 function serve() {
   browserSync.init({
-    open: false,
     server: {
       baseDir: config.root.build
     }
