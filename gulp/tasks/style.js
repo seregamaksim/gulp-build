@@ -14,11 +14,12 @@ const cleanCss = require('gulp-clean-css');
 const config = require('../config.json');
 const sourcemaps = require('gulp-sourcemaps');
 const mode = require('gulp-mode')();
-const cache = require('gulp-cached');
+const shorthand = require('gulp-shorthand');
+// const cache = require('gulp-cached');
 
 function style() {
   return src(normalize(path.join(config.root.source, config.style.folders)))
-    .pipe(cache('linting'))
+    // .pipe(cache('linting'))
     .pipe(mode.development(sourcemaps.init()))
     .pipe(sass({
       includePaths: require('scss-resets').includePaths
@@ -26,9 +27,11 @@ function style() {
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(postcss([autoprefixer()]))
     .pipe(mode.development(sourcemaps.write('./maps')))
+    .pipe(mode.production(shorthand()))
     .pipe(dest(normalize(path.join(config.root.build, config.style.dest))))
     .pipe(rename('commons.min.css'))
     .pipe(mode.production(cleanCss({compatibility: '*'})))
+    .pipe(mode.production(shorthand()))
     .pipe(dest(normalize(path.join(config.root.build, config.style.dest))));
 }
 

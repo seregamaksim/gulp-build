@@ -7,14 +7,15 @@ const pug = require('gulp-pug');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const config = require('../config.json');
-const cache = require('gulp-cached');
+// const cache = require('gulp-cached');
 
 function html() {
   return src(normalize(path.join(config.root.source, config.template.dir)))
-    .pipe(cache('linting'))
+    // .pipe(cache('html'))
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(pug({
-      pretty: true
+      pretty: true,
+      // cache: true
     }))
     .pipe(dest(normalize(path.join(config.root.build))));
 }

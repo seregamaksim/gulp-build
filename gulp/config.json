@@ -4,7 +4,7 @@
     "build": "build"
   },
   "template": {
-    "folders": "/template/**/*.*",
+    "folders": "/template/**/*.pug",
     "dir": "/template/pages/*.*"
   },
   "style": {
